@@ -1,0 +1,447 @@
+@import url(global.css);
+@import url(reset.css);
+
+/* Barra de navegação */
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: var(--nav-bg-color);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1;
+}
+
+.navbar__logo {
+    max-width: 160px;
+}
+
+.navbar__logo-image {
+    width: 100%;
+}
+
+.navbar__login {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.navbar__item {
+    font-size: .75rem;
+    letter-spacing: .125rem !important;
+}
+
+.navbar__item-button {
+    padding: .5rem 1.625rem !important;
+    transition: background 1s,color 1s;
+}
+
+.navbar__item-button:hover {
+    color: var(--btn-link-color);
+    background-color: var(--btn-link-bg-color);
+}
+
+/* Botões */
+
+.button {
+    background-color: var(--tertiary-color);
+    padding: 1rem 2.5rem;
+    border-radius: 31.25rem;
+    letter-spacing: .25rem;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+
+.button--gradient {
+    background: var(--btn-bg-color-gradient);
+    outline: .188rem solid transparent;
+    transition: background 1s, outline 1s, transform 1s;
+    background-size: 250%;
+}
+
+.button--gradient:hover {
+    background: transparent;
+    background-position: 100%;
+    border: 2px solid var(--secondary-color);
+    transform: scale(1.05);
+}
+
+/* Cabeçalho */
+.header {
+    position: relative;
+    margin-top: 8.5rem;
+    padding: 6.25rem 0 18.75rem;
+    background: linear-gradient(-45deg, #56126b, #0f0f10, #271e6e);
+    background-size: 400% 400%;
+    animation: gradient 10s ease infinite alternate;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100%  {
+        background-position: 0% 50%;
+    }
+}
+
+.header__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 0px 2.5rem;
+    text-align: center;
+}
+
+.header__brands {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.header__title {
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+
+.header__title--thin {
+    display: block;
+    font-size: 2rem;
+    font-weight: lighter;
+}
+
+.header__ruler {
+    width: 70%;
+    max-width: 700px;
+    height: .25rem;
+    margin: auto;
+    background: var(--divider-bg-color);
+}
+
+.price {
+    font-size: 1.25rem;
+}
+
+.price :first-child {
+    font-family: Quicksand, sans-serif;
+}
+
+.price__value {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.price__value--thin {
+    font-size: 1rem;
+    font-weight: lighter;
+}
+
+.header__button {
+    animation: wiggle 2.2s linear infinite;
+}
+
+.header__button:hover {
+    background: transparent;
+    background-position: 100%;
+    border: .125rem solid var(--secondary-color);
+}
+
+@keyframes wiggle {
+    0%, 10% {
+        transform: rotate(0);
+    }
+    15% {
+        transform: rotate(-15deg);
+    }
+    20% {
+        transform: rotate(10deg);
+    }
+    25% {
+        transform: rotate(-10deg);
+    }
+    30% {
+        transform: rotate(10deg);
+    }
+    35% {
+        transform: rotate(-10deg);
+    }
+    40%, 100% {
+        transform: rotate(0);
+    }
+}
+
+.header__note {
+    font-family: Quicksand, sans-serif;
+    max-width: 18.75rem;
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.header::after {
+    content: "";
+    width: 100%;
+    height: 15.625rem;
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(0deg, var(--primary-color), transparent);
+}
+
+/* Assinaturas */
+.signatures {
+    background: url(../images/background-movies-series.png) no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.signatures__container {
+    max-width: 1200px;
+    padding: 2.5rem;
+    margin: auto;
+    text-align: center;
+}
+
+.signatures__plans {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 2.5rem 0;
+    perspective: 2000px;
+    perspective-origin: top;
+}
+
+.signatures__card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: var(--card-bg-color);
+    border-radius: .5rem;
+    min-height: 37.5rem;
+    padding: 2.5rem;
+    transition: transform 1s ease-in-out;
+}
+
+.signatures__plans:has(.signatures__card:nth-child(2):hover) .signatures__card:nth-child(1) {
+    transform: rotateY(45deg);
+}
+
+.signatures__plans:has(.signatures__card:nth-child(1):hover) .signatures__card:nth-child(2) {
+    transform: rotateY(-45deg);
+}
+
+.signatures__plan {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.signatures__price {
+    color: var(--secondary-color);
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.signatures__price--thin {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--text-color);
+}
+
+.signatures__benefit {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin: 0 0 0.875rem;
+    font-size: 1rem;
+    text-align: start;
+}
+
+li::before {
+    content: "+";
+    font-size: 2rem;
+}
+
+.signatures__card button {
+    font-size: .7rem;
+}
+
+
+
+/* Cartazes de séries */
+.discover {
+    margin: 6.25rem auto;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.discover__container {
+    display: grid;
+    grid-template-columns: repeat(6, 100%);
+    gap: 2rem;
+    overflow: auto;
+}
+
+.discover__card {
+    border: .125rem solid transparent;
+    border-radius: 1rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transition: transform .8s, background .8s, border 1s;
+}
+
+.discover__card:nth-child(1):hover {
+    background-image: url(../images/hbo-hover_0.webp);
+}
+
+.discover__card:nth-child(2):hover {
+    background-image: url(../images/MAX-Hover.webp);
+}
+
+.discover__card:nth-child(3):hover {
+    background-image: url(../images/DC-Hover.webp);
+}
+
+.discover__card:nth-child(4):hover {
+    background-image: url(../images/WB-Hover.webp);
+}
+
+.discover__card:nth-child(5):hover {
+    background-image: url(../images/CN-Hover.png);
+}
+
+.discover__card:nth-child(6):hover {
+    background-image: url(../images/UCL-Hover.webp);
+}
+
+.discover__image {
+    transition: opacity 2s;
+}
+
+.discover__image:hover {
+    opacity: 0;
+}
+
+/* Rodapé */
+.footer__container {
+    padding: 1.5rem;
+    margin: auto;
+}
+
+.footer__links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer__link {
+    font-size: .875rem;
+    letter-spacing: .125rem;
+    margin: 0 .875rem 1rem;
+    color: var(--link-color);
+    transition: color .5s;
+}
+
+.footer__link:hover {
+    color: var(--text-color);
+}
+
+.footer__copyright {
+    margin: 1rem 0;
+    font-family: Quicksand, sans-serif;
+    font-size: .75rem;
+    text-align: center;
+    color: var(--link-color);
+}
+
+.footer__medias {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5rem;
+    margin-top: 5rem;
+}
+
+/* Media queries */
+@media screen and (min-width: 768px) {
+    /* Barra de navegação */
+    .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 0;
+        padding: .75rem 1rem;
+    }
+
+    .navbar__login {
+        gap: 0;
+    }
+
+    .navbar__item {
+        margin-right: 2.5rem;
+    }
+
+    .navbar__item-button {
+        padding: .5rem 1.625rem;
+    }
+
+    /* Cabeçalho */
+    .header {
+        margin-top: 3.5rem;
+    }
+
+    /* Assinaturas */
+    .signatures {
+
+    }
+
+    .signatures__plans {
+        flex-direction: row;
+        gap: 5rem;
+    }
+
+    .signatures__plan {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .signatures__price {
+        font-size: 2rem;
+    }
+
+    .signatures__benefit {
+        font-size: 1.25rem;
+    }
+
+    .discover {
+        margin: 6.25rem 4.906rem;
+    }
+
+    .discover__container {
+        margin-top: 2.5rem;
+        grid-template-columns: auto auto auto;
+        gap: 2.5rem;
+    }
+
+    .footer__links {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .footer__link {
+        margin: 0 .875rem;
+    }
+
+}
